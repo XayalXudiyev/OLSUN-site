@@ -133,7 +133,6 @@
   }
 }
 
-
 @layer utilities {
   .custom-scrollbar-hidden::-webkit-scrollbar {
     display: none;

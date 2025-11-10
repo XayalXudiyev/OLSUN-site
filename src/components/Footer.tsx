@@ -1,35 +1,34 @@
-import { Instagram, Linkedin, Facebook } from 'lucide-react';
-import { useLocale } from 'next-intl';
-import Link from 'next/link';
+import { Instagram, Linkedin, Facebook } from "lucide-react";
+import { useLocale } from "next-intl";
+import Link from "next/link";
 
 export default function Footer() {
-
-  const locale = useLocale()
+  const locale = useLocale();
 
   const socialLinks = [
-    { icon: Instagram, href: 'https://instagram.com/olsunevents' },
-    { icon: Linkedin, href: 'https://linkedin.com/company/olsunevents' },
-    { icon: Facebook, href: 'https://facebook.com/olsunevents' },
+    { icon: Instagram, href: "https://instagram.com/olsunevents" },
+    { icon: Linkedin, href: "https://linkedin.com/company/olsunevents" },
+    { icon: Facebook, href: "https://facebook.com/olsunevents" },
   ];
 
   const quickLinks = [
-    { label: 'Home', href: '/', isRoute: true },
-    { label: 'About Us', href: `/${locale}#about`, isRoute: false },
-    { label: 'Services', href: `/${locale}/services`, isRoute: true },
-    { label: 'Contact', href: `/${locale}#contact`, isRoute: false },
+    { label: "Home", href: "/", isRoute: true },
+    { label: "About Us", href: `/${locale}#about`, isRoute: false },
+    { label: "Services", href: `/${locale}/services`, isRoute: true },
+    { label: "Contact", href: `/${locale}#contact`, isRoute: false },
   ];
 
   const supportLinks = [
-    { label: 'Help Center', href: '#' },
-    { label: 'Pricing', href: '/pricing', isRoute: true },
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Privacy Policy', href: '#' },
+    { label: "Help Center", href: "#" },
+    { label: "Pricing", href: "/pricing", isRoute: true },
+    { label: "Terms of Service", href: "#" },
+    { label: "Privacy Policy", href: "#" },
   ];
 
   const contactInfo = [
-    { label: 'Email', value: 'info@olsunevents.com' },
-    { label: 'Phone', value: '+994 10 417 71 32' },
-    { label: 'Address', value: 'Baku, Azerbaijan' },
+    { label: "Email", value: "info@olsunevents.com" },
+    { label: "Phone", value: "+994 10 417 71 32" },
+    { label: "Address", value: "Baku, Azerbaijan" },
   ];
 
   return (
@@ -76,7 +75,7 @@ export default function Footer() {
                   >
                     {link.label}
                   </a>
-                )
+                ),
               )}
             </div>
           </div>
@@ -101,7 +100,7 @@ export default function Footer() {
                   >
                     {link.label}
                   </a>
-                )
+                ),
               )}
             </div>
           </div>

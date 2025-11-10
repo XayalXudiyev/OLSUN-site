@@ -1,15 +1,21 @@
-import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle } from 'lucide-react';
-import Image from 'next/image';
+import { Button } from "@/components/ui/button";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import Image from "next/image";
 
 interface HeroSectionProps {
   onExploreServices: () => void;
   onScrollToSection: (sectionId: string) => void;
 }
 
-export default function HeroSection({ onExploreServices, onScrollToSection }: HeroSectionProps) {
+export default function HeroSection({
+  onExploreServices,
+  onScrollToSection,
+}: HeroSectionProps) {
   return (
-    <section id="home" className="relative mt-20 flex items-center overflow-hidden">
+    <section
+      id="home"
+      className="relative mt-20 flex items-center overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div>
           <p className="text-sm text-[#6366F1] uppercase tracking-wider mb-3 font-bold bg-[#F1EFFF] px-3 py-1 rounded-md inline-block">
@@ -19,7 +25,8 @@ export default function HeroSection({ onExploreServices, onScrollToSection }: He
             Revolutionizing Event Management in Azerbaijan
           </h1>
           <h2 className="text-xl text-[#6B7280] leading-normal mb-6 max-w-[540px]">
-            The all-in-one marketplace connecting HR managers with trusted venues, services, and vendors for seamless corporate events
+            The all-in-one marketplace connecting HR managers with trusted
+            venues, services, and vendors for seamless corporate events
           </h2>
 
           <div className="flex flex-col h-14 sm:flex-row gap-4 mb-6">
@@ -34,15 +41,13 @@ export default function HeroSection({ onExploreServices, onScrollToSection }: He
             <Button
               type="button"
               variant="outline"
-              onClick={() => onScrollToSection('#about')}
+              onClick={() => onScrollToSection("#about")}
               className="border-[1.5px] border-primary h-full text-primary text-lg rounded-xl transition-all hover:bg-transparent hover:text-primary"
             >
               Learn More
             </Button>
           </div>
-
         </div>
-
 
         <div className="relative">
           <Image

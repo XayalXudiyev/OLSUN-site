@@ -4,7 +4,8 @@ export default function Services() {
   const services = [
     {
       title: "Event Planning",
-      description: "Comprehensive event planning services tailored to your needs.",
+      description:
+        "Comprehensive event planning services tailored to your needs.",
     },
     {
       title: "Venue Selection",

@@ -1,46 +1,51 @@
-"use client"
+"use client";
 
-import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
-import { useState } from 'react';
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { useState } from "react";
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
 
   const contactInfoData = [
     {
       icon: Mail,
-      label: 'Email',
-      value: 'info@olsunevents.com',
-      href: 'mailto:info@olsunevents.com',
-      color: '#6366F1'
+      label: "Email",
+      value: "info@olsunevents.com",
+      href: "mailto:info@olsunevents.com",
+      color: "#6366F1",
     },
     {
       icon: Phone,
-      label: 'Phone',
-      value: '+994 10 417 71 32',
-      href: 'tel:+994104177132',
-      color: '#10B981'
+      label: "Phone",
+      value: "+994 10 417 71 32",
+      href: "tel:+994104177132",
+      color: "#10B981",
     },
     {
       icon: MapPin,
-      label: 'Location',
-      value: 'Baku, Azerbaijan',
+      label: "Location",
+      value: "Baku, Azerbaijan",
       href: null,
-      color: '#3B82F6'
+      color: "#3B82F6",
     },
     {
       icon: Linkedin,
-      label: 'Follow Us',
-      value: 'LinkedIn',
-      href: '#',
-      color: '#6366F1'
-    }
+      label: "Follow Us",
+      value: "LinkedIn",
+      href: "#",
+      color: "#6366F1",
+    },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({ name: '', email: '', company: '', message: '' });
+    alert("Thank you for your message! We will get back to you soon.");
+    setFormData({ name: "", email: "", company: "", message: "" });
   };
 
   return (
@@ -61,7 +66,9 @@ export default function ContactSection() {
                 type="text"
                 required
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
                 placeholder="John Doe"
                 className="w-full px-3 py-3 border border-[#E5E7EB] rounded-lg focus:border-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] focus:ring-opacity-20"
               />
@@ -75,18 +82,24 @@ export default function ContactSection() {
                 type="email"
                 required
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 placeholder="john@company.com"
                 className="w-full px-3 py-3 border border-[#E5E7EB] rounded-lg focus:border-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] focus:ring-opacity-20"
               />
             </div>
 
             <div>
-              <label className="block text-sm text-[#111827] mb-2">Company Name</label>
+              <label className="block text-sm text-[#111827] mb-2">
+                Company Name
+              </label>
               <input
                 type="text"
                 value={formData.company}
-                onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, company: e.target.value })
+                }
                 placeholder="Your Company"
                 className="w-full px-3 py-3 border border-[#E5E7EB] rounded-lg focus:border-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] focus:ring-opacity-20"
               />
@@ -100,7 +113,9 @@ export default function ContactSection() {
                 required
                 rows={4}
                 value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
                 placeholder="Tell us what you're looking for..."
                 className="w-full px-3 py-3 border border-[#E5E7EB] rounded-lg focus:border-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] focus:ring-opacity-20"
               />
@@ -116,12 +131,21 @@ export default function ContactSection() {
 
           <div className="space-y-4">
             {contactInfoData.map((contact) => (
-              <div key={contact.label} className="bg-white rounded-xl p-5 flex items-center gap-4 hover:shadow-md transition-shadow">
-                <contact.icon className="w-6 h-6" style={{ color: contact.color }} />
+              <div
+                key={contact.label}
+                className="bg-white rounded-xl p-5 flex items-center gap-4 hover:shadow-md transition-shadow"
+              >
+                <contact.icon
+                  className="w-6 h-6"
+                  style={{ color: contact.color }}
+                />
                 <div>
                   <p className="text-sm text-[#6B7280]">{contact.label}</p>
                   {contact.href ? (
-                    <a href={contact.href} className="text-[#111827] hover:text-[#6366F1]">
+                    <a
+                      href={contact.href}
+                      className="text-[#111827] hover:text-[#6366F1]"
+                    >
                       {contact.value}
                     </a>
                   ) : (

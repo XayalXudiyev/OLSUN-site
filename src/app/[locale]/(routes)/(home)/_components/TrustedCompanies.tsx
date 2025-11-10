@@ -5,18 +5,18 @@ export default function TrustedCompanies() {
     {
       name: "Mədəniyyət Nazirliyi",
       logo: "/supported/Mədəniyyət_Nazirliyi.png",
-      alt: "Azerbaijan Ministry of Culture"
+      alt: "Azerbaijan Ministry of Culture",
     },
     {
       name: "Yaradıcı Mərkəz",
       logo: "/supported/yardıcı-mərkəz.png",
-      alt: "Creative Center"
+      alt: "Creative Center",
     },
     {
       name: "CulTech İnkubasiya Mərkəzi",
       logo: "/supported/cultech.webp",
-      alt: "CulTech Incubation Center"
-    }
+      alt: "CulTech Incubation Center",
+    },
   ];
 
   return (
@@ -27,7 +27,10 @@ export default function TrustedCompanies() {
         </p>
         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
           {supportedBy.map((supporter) => (
-            <div key={supporter.name} className="flex flex-col items-center gap-2 p-4 hover:scale-105 transition-transform">
+            <div
+              key={supporter.name}
+              className="flex flex-col items-center gap-2 p-4 hover:scale-105 transition-transform"
+            >
               <div className="relative h-16 w-32 md:h-28 md:w-48 flex items-center justify-center">
                 <Image
                   src={supporter.logo}
@@ -43,6 +46,6 @@ export default function TrustedCompanies() {
           ))}
         </div>
       </div>
-    </section >
+    </section>
   );
 }

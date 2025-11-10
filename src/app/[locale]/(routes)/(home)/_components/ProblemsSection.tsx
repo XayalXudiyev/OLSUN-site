@@ -1,25 +1,28 @@
-import { Clock, HelpCircle, Puzzle } from 'lucide-react';
+import { Clock, HelpCircle, Puzzle } from "lucide-react";
 
 export default function ProblemsSection() {
   const problemsData = [
     {
       icon: Clock,
-      title: 'Hours Wasted Searching',
-      description: 'Calling 20+ vendors, scrolling Instagram endlessly, coordinating across WhatsApp groups—event planning consumes 10+ hours per event',
-      bgColor: '#EF4444'
+      title: "Hours Wasted Searching",
+      description:
+        "Calling 20+ vendors, scrolling Instagram endlessly, coordinating across WhatsApp groups—event planning consumes 10+ hours per event",
+      bgColor: "#EF4444",
     },
     {
       icon: HelpCircle,
-      title: 'No Quality Assurance',
-      description: 'Unreliable vendors, hidden costs, last-minute cancellations—finding trustworthy partners feels like gambling',
-      bgColor: '#F59E0B'
+      title: "No Quality Assurance",
+      description:
+        "Unreliable vendors, hidden costs, last-minute cancellations—finding trustworthy partners feels like gambling",
+      bgColor: "#F59E0B",
     },
     {
       icon: Puzzle,
-      title: 'Fragmented Process',
-      description: 'Juggling multiple tools, spreadsheets, and platforms makes coordination chaotic and error-prone',
-      bgColor: '#6366F1'
-    }
+      title: "Fragmented Process",
+      description:
+        "Juggling multiple tools, spreadsheets, and platforms makes coordination chaotic and error-prone",
+      bgColor: "#6366F1",
+    },
   ];
 
   return (
@@ -34,11 +37,22 @@ export default function ProblemsSection() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {problemsData.map((problem) => (
-            <div key={problem.title} className="bg-white rounded-2xl p-10 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all">
-              <div className="w-12 h-12 bg-opacity-10 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: `${problem.bgColor}1A` }}>
-                <problem.icon className="w-8 h-8" style={{ color: problem.bgColor }} />
+            <div
+              key={problem.title}
+              className="bg-white rounded-2xl p-10 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all"
+            >
+              <div
+                className="w-12 h-12 bg-opacity-10 rounded-full flex items-center justify-center mb-6"
+                style={{ backgroundColor: `${problem.bgColor}1A` }}
+              >
+                <problem.icon
+                  className="w-8 h-8"
+                  style={{ color: problem.bgColor }}
+                />
               </div>
-              <h3 className="text-[22px] text-[#111827] mb-4">{problem.title}</h3>
+              <h3 className="text-[22px] text-[#111827] mb-4">
+                {problem.title}
+              </h3>
               <p className="text-[#6B7280] leading-relaxed">
                 {problem.description}
               </p>

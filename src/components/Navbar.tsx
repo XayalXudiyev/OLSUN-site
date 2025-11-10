@@ -1,12 +1,11 @@
-"use client"
+"use client";
 
 import LocaleSwitcher from "@/localSwitcher/LocaleSwithcher";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 
 export default function Navbar() {
-
-  const locale = useLocale()
+  const locale = useLocale();
   const tNavbar = useTranslations("navbar");
 
   const navLinks = [

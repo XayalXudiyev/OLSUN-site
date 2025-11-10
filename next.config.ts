@@ -1,7 +1,7 @@
-import type { NextConfig } from "next"
-import createNextIntlPlugin from "next-intl/plugin"
+import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
-const withNextIntl = createNextIntlPlugin()
+const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
   typescript: {
@@ -19,8 +19,13 @@ const nextConfig: NextConfig = {
   experimental: {
     esmExternals: true,
     optimizeCss: true,
-    optimizePackageImports: ["react-hook-form", "zod", "react-hook-form/resolvers", "shadcn/ui"],
+    optimizePackageImports: [
+      "react-hook-form",
+      "zod",
+      "react-hook-form/resolvers",
+      "shadcn/ui",
+    ],
   },
-}
+};
 
-export default withNextIntl(nextConfig)
+export default withNextIntl(nextConfig);

@@ -1,9 +1,9 @@
 {
-    "navbar": {
-        "home": "Ana səhifə",
-        "about": "Haqqımızda",
-        "services": "Xidmətlər",
-        "contact": "Əlaqə",
-        "blog": "Blog"
-    }
+  "navbar": {
+    "home": "Ana səhifə",
+    "about": "Haqqımızda",
+    "services": "Xidmətlər",
+    "contact": "Əlaqə",
+    "blog": "Blog"
+  }
 }

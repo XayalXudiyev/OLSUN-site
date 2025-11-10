@@ -1,9 +1,9 @@
 {
-    "navbar": {
-        "home": "Главная",
-        "about": "О нас",
-        "services": "Услуги",
-        "contact": "Контакт",
-        "blog": "Блог"
-    }
+  "navbar": {
+    "home": "Главная",
+    "about": "О нас",
+    "services": "Услуги",
+    "contact": "Контакт",
+    "blog": "Блог"
+  }
 }
