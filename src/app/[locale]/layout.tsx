@@ -7,6 +7,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { Toaster } from "sonner";
 
 const arimo = Arimo({
   variable: "--font-arimo",
@@ -38,6 +39,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <Navbar />
           {children}
+          <Toaster position="top-center" richColors />
           <Footer />
         </NextIntlClientProvider>
       </body>

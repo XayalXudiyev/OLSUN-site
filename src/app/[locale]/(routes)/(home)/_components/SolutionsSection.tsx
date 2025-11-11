@@ -7,7 +7,7 @@ const solutionsData = [
     title: "Curated Marketplace",
     description:
       "Browse 20+ pre-vetted venues, service providers, and vendors in one platform. Filter by budget, capacity, location, and availability instantly.",
-    image: "/Landing/Curated-marketplace.webp",
+    image: "/images/Landing/Curated-marketplace.webp",
     iconColor: "#10B981",
     reverse: false,
   },
@@ -16,7 +16,7 @@ const solutionsData = [
     title: "Streamlined Booking",
     description:
       "Submit one request, get responses from multiple vendors. Compare prices transparently, book with confidence, and track everything in your dashboard.",
-    image: "/Landing/Curated-marketplace.webp",
+    image: "/images/Landing/Streamlined-booking.webp",
     iconColor: "#3B82F6",
     reverse: true,
   },
@@ -25,7 +25,7 @@ const solutionsData = [
     title: "All-in-One Coordination",
     description:
       "Manage RSVPs, track budgets, communicate with vendors, and coordinate logistics—all from one simple interface.",
-    image: "/Landing/Curated-marketplace.webp",
+    image: "/images/Landing/Curated-marketplace.webp",
     iconColor: "#6366F1",
     reverse: false,
   },
@@ -51,11 +51,10 @@ export default function SolutionsSection() {
               >
                 <Image
                   src={solution.image}
-                  alt="Corporate event celebration"
+                  alt={solution.title}
                   width={600}
                   height={300}
                   className="w-full h-[300px] rounded-2xl"
-                  priority
                 />
               </div>
               <div

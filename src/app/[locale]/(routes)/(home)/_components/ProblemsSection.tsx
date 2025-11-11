@@ -1,23 +1,24 @@
 import { Clock, HelpCircle, Puzzle } from "lucide-react";
+import Image from "next/image";
 
 export default function ProblemsSection() {
   const problemsData = [
     {
-      icon: Clock,
+      icon: "/icons/Clock.svg",
       title: "Hours Wasted Searching",
       description:
         "Calling 20+ vendors, scrolling Instagram endlessly, coordinating across WhatsApp groups—event planning consumes 10+ hours per event",
       bgColor: "#EF4444",
     },
     {
-      icon: HelpCircle,
+      icon: "/icons/Partnership.svg",
       title: "No Quality Assurance",
       description:
         "Unreliable vendors, hidden costs, last-minute cancellations—finding trustworthy partners feels like gambling",
       bgColor: "#F59E0B",
     },
     {
-      icon: Puzzle,
+      icon: `/icons/Chaos.svg`,
       title: "Fragmented Process",
       description:
         "Juggling multiple tools, spreadsheets, and platforms makes coordination chaotic and error-prone",
@@ -39,18 +40,15 @@ export default function ProblemsSection() {
           {problemsData.map((problem) => (
             <div
               key={problem.title}
-              className="bg-[#332B66] rounded-2xl py-10 px-5  hover:shadow-lg hover:-translate-y-1 transition-all text-white"
+              className="bg-[#332B66] rounded-2xl p-7 hover:shadow-lg hover:-translate-y-1 transition-all text-white"
             >
-              <div
-                className="w-12 h-12 bg-opacity-10 rounded-full flex items-center justify-center mb-6"
-                style={{ backgroundColor: `${problem.bgColor}1A` }}
-              >
-                <problem.icon
-                  className="w-8 h-8"
-                  style={{ color: problem.bgColor }}
-                />
-              </div>
-              <h3 className="text-2xl mt-7 mb-5">{problem.title}</h3>
+              <Image
+                src={problem.icon}
+                alt={problem.title}
+                width={56}
+                height={56}
+              />
+              <h3 className="text-2xl mt-3 mb-5">{problem.title}</h3>
               <p className="text-[#A59FC6] leading-relaxed">
                 {problem.description}
               </p>

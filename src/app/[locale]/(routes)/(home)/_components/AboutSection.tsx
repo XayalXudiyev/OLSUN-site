@@ -67,7 +67,7 @@ export default function AboutSection() {
 
         <div className="w-5/12">
           <Image
-            src="/hero-photo.webp"
+            src="/images/Landing/hero-photo.webp"
             alt="Corporate event celebration"
             width={700}
             height={500}

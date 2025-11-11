@@ -9,6 +9,7 @@ import {
   SelectItem,
   SelectTrigger,
 } from "@/components/ui/select";
+import Image from "next/image";
 
 export default function LocaleSwitcher() {
   const locale: string = useLocale();
@@ -26,8 +27,8 @@ export default function LocaleSwitcher() {
   };
 
   const localeLabels: Record<string, string> = {
-    en: "EN",
     az: "AZ",
+    en: "EN",
     ru: "RU",
   };
 
@@ -35,21 +36,29 @@ export default function LocaleSwitcher() {
 
   return (
     <Select onValueChange={onSelectChange} defaultValue={locale}>
-      <SelectTrigger className="bg-transparent group border-none outline-none ring-0 focus:ring-offset-0 focus:ring-0 focus:outline-none gap-x-1 md:text-base w-fit [&>svg]:hover:text-[#D2B48C] [&>svg]:opacity-100 [&>svg]:data-[state=open]:rotate-180">
-        <span className="text-xl text-black md:text-[#666666]  md:text-base group-hover:text-[#D2B48C]">
-          {localeLabels[locale]}
-        </span>
+      <SelectTrigger className=" border-primary transition-all data-[size=default]:h-8 px-2 duration-200 [&>svg]:opacity-100 [&>svg]:data-[state=open]:rotate-180">
+        <span className="">{localeLabels[locale]}</span>
       </SelectTrigger>
-      <SelectContent className=" shadow-none bg-primary-light max-w-[120px]  min-w-0">
+      <SelectContent className="shadow-lg border border-gray-200 min-w-20 bg-white">
         <SelectGroup>
           {Object.entries(localeLabels).map(([code, label]) => (
             <SelectItem
               key={code}
               value={code}
-              className="focus:bg-white cursor-pointer my-1  pl-0 px-2"
+              className={`cursor-pointer transition-colors duration-150 hover:bg-gray-50 focus:bg-primary/10 focus:text-primary data-highlighted:bg-primary/10 data-highlighted:text-primary ${
+                code === locale
+                  ? "bg-primary/15 text-primary font-medium"
+                  : "text-gray-700"
+              }`}
             >
-              <div className="flex gap-x-2 items-center">
-                <span className="leading-4 text-base ">{label}</span>
+              <div className="flex gap-x-2 items-center ">
+                <Image
+                  src={`/flags/${code}.svg`}
+                  alt={code}
+                  width={24}
+                  height={24}
+                />
+                <span className="leading-4 text-base">{label}</span>
               </div>
             </SelectItem>
           ))}

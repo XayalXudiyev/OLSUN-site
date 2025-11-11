@@ -9,6 +9,7 @@ import ProblemsSection from "./_components/ProblemsSection";
 import SolutionsSection from "./_components/SolutionsSection";
 import ServicesSection from "./_components/ServicesSection";
 import ContactSection from "./_components/ContactSection";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   const router = useRouter();
@@ -39,6 +40,7 @@ export default function Home() {
       <AboutSection />
       <ProblemsSection />
       <SolutionsSection />
+      <Separator />
       <ContactSection />
     </div>
   );

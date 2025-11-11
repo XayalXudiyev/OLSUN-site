@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { toast } from "sonner";
 
 const contactSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -16,7 +17,7 @@ const contactSchema = z.object({
   company: z.string().optional().or(z.literal("")),
   message: z.string().optional().or(z.literal("")),
 });
-type FormData = z.infer<typeof contactSchema>;
+export type FormData = z.infer<typeof contactSchema>;
 
 export default function ContactSection() {
   const {
@@ -33,26 +34,49 @@ export default function ContactSection() {
       company: "",
       message: "",
     },
+    mode: "onChange",
   });
 
-  const onSubmit = async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    alert("Thank you for your message! We will get back to you soon.");
-    reset();
+  const onSubmit = async (data: FormData) => {
+    try {
+      toast.loading("Müraciətiniz göndərilir...", {
+        id: "contact-form",
+      });
+
+      const response = await fetch("/api/sheets", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast.success("Müraciətiniz uğurla göndərildi!", {
+          id: "contact-form",
+        });
+        reset();
+      } else {
+        toast.error("Xəta baş verdi", {
+          id: "contact-form",
+          description: "Zəhmət olmasa yenidən cəhd edin.",
+        });
+      }
+    } catch (error) {
+      toast.error("Bağlantı xətası", {
+        id: "contact-form",
+        description: `${error || "İnternet bağlantınızı yoxlayın və yenidən cəhd edin."}`,
+      });
+    }
   };
 
   return (
-    <section id="contact" className="p-20 bg-gray-50">
+    <section id="contact" className="p-20 pt-12 bg-gray-100">
       <div className="max-w- mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-gray-900 mb-6">
             Get In Touch
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            We'll create high-quality linkable content and build at least 40
-            high-authority links to each asset, paving the way for you to grow
-            your rankings, improve brand.
-          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
