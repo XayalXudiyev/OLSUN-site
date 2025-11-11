@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useRouter, useParams } from "next/navigation";
 import {
   Wifi,
   Car,
@@ -46,8 +47,20 @@ const amenityIcons: Record<string, any> = {
 };
 
 export const PackageCard = ({ package: pkg }: PackageCardProps) => {
+  const router = useRouter();
+  const params = useParams();
+  const locale = params.locale as string;
+
+  const handleCardClick = () => {
+    router.push(`/${locale}/services/${pkg.id}`);
+  };
+
   return (
-    <div className="group bg-white border border-[#E5E7EB] rounded-xl overflow-hidden hover:border-primary hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer relative flex flex-col h-full">
+    <button
+      type="button"
+      onClick={handleCardClick}
+      className="group bg-white border border-[#E5E7EB] rounded-xl overflow-hidden hover:border-primary hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer relative flex flex-col h-full text-left w-full"
+    >
       <div className="absolute top-3 left-0 right-0 px-3 flex items-start justify-between z-10">
         <div className="bg-white/95 backdrop-blur-sm border border-[#E5E7EB] px-2.5 py-1 rounded-md shadow-sm">
           <span
@@ -118,12 +131,13 @@ export const PackageCard = ({ package: pkg }: PackageCardProps) => {
               </div>
             ))}
             {pkg.includedServices.length > 3 && (
-              <button
-                className="text-[12px] text-primary mt-1 hover:underline"
+              <Button
+                className="text-[12px] text-primary mt-1 hover:underline hover:bg-transparent"
+                variant={"ghost"}
                 style={{ fontWeight: 600 }}
               >
                 + {pkg.includedServices.length - 3} more
-              </button>
+              </Button>
             )}
           </div>
         </div>
@@ -163,19 +177,12 @@ export const PackageCard = ({ package: pkg }: PackageCardProps) => {
           </div>
         </div>
 
-        <div className="mt-auto">
-          <Button
-            // onClick={handleViewDetails}
-            variant={"ghost"}
-            className="w-full min-h-11 py-2.5 md:py-2.5 px-4 border-2 border-primary text-primary rounded-lg text-sm md:text-[14px] group-hover:hidden group-hover:text-white hover:shadow-md transition-all"
-            style={{ fontWeight: 600 }}
-          >
-            View Details
-          </Button>
+        <div className="mt-auto w-full min-h-11 py-2.5 md:py-2.5 px-4 border-2 border-primary text-primary rounded-lg text-sm md:text-[14px] hover:shadow-md transition-all flex items-center justify-center group-hover:hidden group-hover:text-white font-semibold">
+          View Details
         </div>
       </div>
 
-      <div className="absolute bottom-0 h- w-full left-0 right-0 bg-linear-to-t from-primary via-primary/95 to-transparent text-white p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out flex">
+      <div className="absolute bottom-0 w-full left-0 right-0 bg-linear-to-t from-primary via-primary/95 to-transparent text-white p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out flex">
         <div className="space-y-2 w-full">
           <div className="flex items-center gap-2">
             <Clock className="w-5 h-5" />
@@ -204,6 +211,6 @@ export const PackageCard = ({ package: pkg }: PackageCardProps) => {
                     `}</style>
         </div>
       </div>
-    </div>
+    </button>
   );
 };

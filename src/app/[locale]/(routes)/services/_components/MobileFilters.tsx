@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 
 interface MobileFiltersProps {
@@ -50,19 +51,19 @@ export const MobileFilters = ({
 
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
-      <div className="absolute inset-0 bg-black/50" onClick={onClose} />
+      <Button className="absolute inset-0 bg-black/50" onClick={onClose} />
 
       <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-xl max-h-[80vh] overflow-hidden">
         <div className="flex items-center justify-between p-4 border-b border-[#E5E7EB]">
           <h2 className="text-lg font-semibold text-[#111827]">
             Filters {activeFilterCount > 0 && `(${activeFilterCount})`}
           </h2>
-          <button
+          <Button
             onClick={onClose}
             className="p-2 hover:bg-[#F3F4F6] rounded-full transition-colors"
           >
             <X className="w-5 h-5 text-[#6B7280]" />
-          </button>
+          </Button>
         </div>
 
         <div className="p-4 space-y-6 overflow-y-auto max-h-[calc(80vh-120px)]">
@@ -137,18 +138,18 @@ export const MobileFilters = ({
 
         <div className="p-4 border-t border-[#E5E7EB] bg-white">
           <div className="flex gap-3">
-            <button
+            <Button
               onClick={handleClearFilters}
               className="flex-1 h-12 border border-[#E5E7EB] text-[#6B7280] rounded-lg font-semibold hover:bg-[#F9FAFB] transition-colors"
             >
               Clear All
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={handleApplyFilters}
               className="flex-1 h-12 bg-[#6366F1] text-white rounded-lg font-semibold hover:bg-[#5B5BD6] transition-colors"
             >
               Apply Filters
-            </button>
+            </Button>
           </div>
         </div>
       </div>

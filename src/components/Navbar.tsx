@@ -19,7 +19,10 @@ export default function Navbar() {
     <nav className="w-full border-b border-primary/30 px-20 ">
       <div className="max-w-7xl mx-auto flex items-center justify-between py-3  ">
         <div className=" flex items-center">
-          <Link href="/" className="text-[2rem] font-bold text-primary">
+          <Link
+            href={`/${locale}`}
+            className="text-[2rem] font-bold text-primary"
+          >
             Olsun
           </Link>
         </div>
