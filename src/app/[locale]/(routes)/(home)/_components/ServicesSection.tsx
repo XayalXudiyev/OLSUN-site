@@ -33,9 +33,9 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-10">
-        <h2 className="text-[40px] text-[#111827] text-center mb-16">
+    <section className="p-20 bg-primary">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl text-white font-bold text-center mb-16">
           Who We Serve
         </h2>
 
@@ -43,16 +43,14 @@ export default function ServicesSection() {
           {servicesData.map((service) => (
             <div
               key={service.title}
-              className="bg-white rounded-2xl p-10 text-center hover:shadow-lg hover:-translate-y-1 transition-all"
+              className="bg-[#332B66] rounded-2xl py-10 px-5 text-center hover:shadow-lg hover:-translate-y-1 transition-all text-white"
             >
               <service.icon
-                className="w-16 h-16 mx-auto mb-4"
+                className="w-16 h-16 mx-auto"
                 style={{ color: service.color }}
               />
-              <h3 className="text-[24px] text-[#111827] mb-3">
-                {service.title}
-              </h3>
-              <p className="text-[#6B7280]">{service.description}</p>
+              <h3 className="text-2xl mt-7 mb-5">{service.title}</h3>
+              <p>{service.description}</p>
             </div>
           ))}
         </div>

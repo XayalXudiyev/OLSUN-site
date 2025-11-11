@@ -24,52 +24,54 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-10 grid md:grid-cols-[55%_45%] gap-12 items-center">
-        <div>
-          <p className="text-sm text-[#6366F1] uppercase tracking-widest mb-4">
+    <section id="about" className="p-20 ">
+      <div className="max-w-7xl mx-auto flex gap-28 items-center">
+        <div className="w-7/12">
+          <p className="text-xs text-primary font-bold px-3 py-2 flex items-center justify-center bg-[#F1EFFF] uppercase tracking-widest mb-4 rounded-4xl w-fit">
+            <Image
+              src="/icons/Man.svg"
+              alt="Olsun Logo"
+              width={20}
+              height={24}
+              className="inline-block mr-2"
+            />
             Who We Are
           </p>
-          <h2 className="text-[40px] text-[#111827] leading-tight mb-6">
+          <h2 className="text-4xl  leading-tight mb-6 font-semibold">
             Building Azerbaijan's Event Ecosystem
           </h2>
-          <p className="text-lg text-[#6B7280] leading-relaxed mb-8 max-w-[520px]">
+          <p className="text-lg text-[#6B7280] leading-relaxed mb-8">
             Olsun Events is Azerbaijan's first corporate event marketplace,
             connecting HR managers and office coordinators with pre-vetted
             venues, service providers, and vendors. Born from the need to
             simplify event planning, we're backed by the CulTech Incubation
             Program and supported by Azerbaijan's Ministry of Culture.
           </p>
-          <p className="text-lg text-[#6B7280] leading-relaxed mb-12 max-w-[520px]">
-            Our mission is simple: transform event planning from a stressful,
-            time-consuming process into a seamless, enjoyable experience.
-          </p>
 
           <div className="grid grid-cols-3 gap-6">
             {statsData.map((stat) => (
               <div
                 key={stat.label}
-                className="bg-white border border-[#E5E7EB] rounded-xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all"
+                className="bg-white border border-[#E5E7EB] rounded-xl px-4 py-6 hover:shadow-lg hover:-translate-y-1 transition-all"
               >
                 <stat.icon
                   className="w-9 h-9 mb-3"
                   style={{ color: stat.color }}
                 />
-                <p className="text-[36px] text-[#111827] mb-1">{stat.value}</p>
+                <p className="text-4xl  mb-1">{stat.value}</p>
                 <p className="text-sm text-[#6B7280]">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="relative">
+        <div className="w-5/12">
           <Image
             src="/hero-photo.webp"
             alt="Corporate event celebration"
-            width={600}
+            width={700}
             height={500}
-            className="w-full h-auto rounded-2xl shadow-2xl"
-            priority
+            className="w-full h-[500px] rounded-2xl shadow-2xl "
           />
         </div>
       </div>

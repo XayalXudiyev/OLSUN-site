@@ -26,8 +26,8 @@ export default function ProblemsSection() {
   ];
 
   return (
-    <section className="py-24 bg-[#F9FAFB]">
-      <div className="max-w-7xl mx-auto px-10">
+    <section className="p-20 bg-primary">
+      <div className="max-w-7xl mx-auto">
         <h2 className="text-[40px] text-[#111827] text-center mb-4">
           The Challenge HR Managers Face
         </h2>
@@ -35,11 +35,11 @@ export default function ProblemsSection() {
           Event planning shouldn't consume your entire week
         </p>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 ">
           {problemsData.map((problem) => (
             <div
               key={problem.title}
-              className="bg-white rounded-2xl p-10 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all"
+              className="bg-[#332B66] rounded-2xl py-10 px-5  hover:shadow-lg hover:-translate-y-1 transition-all text-white"
             >
               <div
                 className="w-12 h-12 bg-opacity-10 rounded-full flex items-center justify-center mb-6"
@@ -50,10 +50,8 @@ export default function ProblemsSection() {
                   style={{ color: problem.bgColor }}
                 />
               </div>
-              <h3 className="text-[22px] text-[#111827] mb-4">
-                {problem.title}
-              </h3>
-              <p className="text-[#6B7280] leading-relaxed">
+              <h3 className="text-2xl mt-7 mb-5">{problem.title}</h3>
+              <p className="text-[#A59FC6] leading-relaxed">
                 {problem.description}
               </p>
             </div>

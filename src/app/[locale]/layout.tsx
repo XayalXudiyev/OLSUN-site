@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Arimo } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,13 +8,8 @@ import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const arimo = Arimo({
+  variable: "--font-arimo",
   subsets: ["latin"],
 });
 
@@ -38,11 +33,11 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased custom-scrollbar-hidden`}
+        className={`${arimo.variable}  antialiased custom-scrollbar-hidden`}
       >
         <NextIntlClientProvider messages={messages}>
           <Navbar />
-          <div className="px-20 max-w-7xl flex mx-auto ">{children}</div>
+          {children}
           <Footer />
         </NextIntlClientProvider>
       </body>

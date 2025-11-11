@@ -14,7 +14,7 @@ export default function HeroSection({
   return (
     <section
       id="home"
-      className="relative mt-20 flex items-center overflow-hidden"
+      className="relative mt-20 flex items-center overflow-hidden px-5 lg:px-20"
     >
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         <div>

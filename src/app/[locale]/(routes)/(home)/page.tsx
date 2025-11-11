@@ -29,16 +29,16 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="w-full">
       <HeroSection
         onExploreServices={handleExploreServices}
         onScrollToSection={scrollToSection}
       />
       <TrustedCompanies />
+      <ServicesSection />
       <AboutSection />
       <ProblemsSection />
       <SolutionsSection />
-      <ServicesSection />
       <ContactSection />
     </div>
   );

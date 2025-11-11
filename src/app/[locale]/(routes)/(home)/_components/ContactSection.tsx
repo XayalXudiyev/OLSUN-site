@@ -1,159 +1,163 @@
 "use client";
 
-import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
-
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
+    phone: "",
     email: "",
     company: "",
     message: "",
   });
 
-  const contactInfoData = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "info@olsunevents.com",
-      href: "mailto:info@olsunevents.com",
-      color: "#6366F1",
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+994 10 417 71 32",
-      href: "tel:+994104177132",
-      color: "#10B981",
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Baku, Azerbaijan",
-      href: null,
-      color: "#3B82F6",
-    },
-    {
-      icon: Linkedin,
-      label: "Follow Us",
-      value: "LinkedIn",
-      href: "#",
-      color: "#6366F1",
-    },
-  ];
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert("Thank you for your message! We will get back to you soon.");
-    setFormData({ name: "", email: "", company: "", message: "" });
+    setFormData({ name: "", phone: "", email: "", company: "", message: "" });
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#F9FAFB]">
-      <div className="max-w-7xl mx-auto px-10">
-        <h2 className="text-[40px] text-[#111827] mb-4">Get in Touch</h2>
-        <p className="text-lg text-[#6B7280] mb-12">
-          Have questions or feedback? We'd love to hear from you
-        </p>
+    <section id="contact" className="p-20 bg-gray-50">
+      <div className="max-w- mx-auto px-4 sm:px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold text-gray-900 mb-6">
+            Get In Touch
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            We'll create high-quality linkable content and build at least 40
+            high-authority links to each asset, paving the way for you to grow
+            your rankings, improve brand.
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-[60%_40%] gap-12">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label className="block text-sm text-[#111827] mb-2">
-                Full Name <span className="text-[#EF4444]">*</span>
-              </label>
-              <input
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                placeholder="John Doe"
-                className="w-full px-3 py-3 border border-[#E5E7EB] rounded-lg focus:border-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] focus:ring-opacity-20"
-              />
-            </div>
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Contact Information Card */}
+          <div className="relative bg-linear-to-br from-primary to-primary rounded-3xl p-8 text-white overflow-hidden">
+            <div className="relative z-10">
+              <h3 className="text-2xl font-bold mb-4">Contact Information</h3>
+              <p className="text-teal-100 mb-8">
+                Have questions or feedback? We'd love to hear from you
+              </p>
 
-            <div>
-              <label className="block text-sm text-[#111827] mb-2">
-                Email Address <span className="text-[#EF4444]">*</span>
-              </label>
-              <input
-                type="email"
-                required
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                placeholder="john@company.com"
-                className="w-full px-3 py-3 border border-[#E5E7EB] rounded-lg focus:border-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] focus:ring-opacity-20"
-              />
-            </div>
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4">
+                  <Phone className="w-5 h-5" />
+                  <a
+                    href="tel:+994104177132"
+                    className="text-teal-100 hover:underline cursor-pointer"
+                  >
+                    +994 10 417 71 32
+                  </a>
+                </div>
 
-            <div>
-              <label className="block text-sm text-[#111827] mb-2">
-                Company Name
-              </label>
-              <input
-                type="text"
-                value={formData.company}
-                onChange={(e) =>
-                  setFormData({ ...formData, company: e.target.value })
-                }
-                placeholder="Your Company"
-                className="w-full px-3 py-3 border border-[#E5E7EB] rounded-lg focus:border-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] focus:ring-opacity-20"
-              />
-            </div>
+                <div className="flex items-center space-x-4">
+                  <Mail className="w-5 h-5" />
+                  <a
+                    href="mailto:info@olsunevents.com"
+                    className="text-teal-100 hover:underline cursor-pointer"
+                  >
+                    info@olsunevents.com
+                  </a>
+                </div>
 
-            <div>
-              <label className="block text-sm text-[#111827] mb-2">
-                Message <span className="text-[#EF4444]">*</span>
-              </label>
-              <textarea
-                required
-                rows={4}
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                placeholder="Tell us what you're looking for..."
-                className="w-full px-3 py-3 border border-[#E5E7EB] rounded-lg focus:border-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1] focus:ring-opacity-20"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full md:w-auto px-8 py-3.5 bg-[#10B981] text-white rounded-lg hover:bg-[#059669] hover:shadow-lg transition-all"
-            >
-              Send Message
-            </button>
-          </form>
-
-          <div className="space-y-4">
-            {contactInfoData.map((contact) => (
-              <div
-                key={contact.label}
-                className="bg-white rounded-xl p-5 flex items-center gap-4 hover:shadow-md transition-shadow"
-              >
-                <contact.icon
-                  className="w-6 h-6"
-                  style={{ color: contact.color }}
-                />
-                <div>
-                  <p className="text-sm text-[#6B7280]">{contact.label}</p>
-                  {contact.href ? (
-                    <a
-                      href={contact.href}
-                      className="text-[#111827] hover:text-[#6366F1]"
-                    >
-                      {contact.value}
-                    </a>
-                  ) : (
-                    <p className="text-[#111827]">{contact.value}</p>
-                  )}
+                <div className="flex items-center space-x-4">
+                  <MapPin className="w-5 h-5" />
+                  <p className="text-teal-100">Baku, Azerbaijan</p>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Decorative circle */}
+            <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-teal-400/20 rounded-full"></div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-white rounded-3xl p-8 shadow-lg">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <Label htmlFor="name">Your Name</Label>
+                  <Input
+                    id="name"
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                    placeholder="Enter your name"
+                    className="border border-primary/10"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="email">Your Email</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    placeholder="Enter your email"
+                    className="border border-primary/10"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="phone">Your Phone</Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
+                    placeholder="Enter your phone number"
+                    className="border border-primary/10"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="company">Your Company</Label>
+                  <Input
+                    id="company"
+                    type="text"
+                    value={formData.company}
+                    onChange={(e) =>
+                      setFormData({ ...formData, company: e.target.value })
+                    }
+                    placeholder="Enter your company"
+                    className="border border-primary/10"
+                  />
+                </div>
+              </div>
+              <div>
+                <Label htmlFor="message">Message</Label>
+                <Textarea
+                  id="message"
+                  required
+                  rows={4}
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  className="border border-primary/10"
+                  placeholder="Write here your message 👋"
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="bg-primary hover:bg-primary/80 text-white px-8 py-3 rounded-lg font-medium"
+              >
+                Send Message
+              </Button>
+            </form>
           </div>
         </div>
       </div>
