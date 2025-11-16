@@ -38,7 +38,7 @@ export default async function RootLayout({
       >
         <NextIntlClientProvider messages={messages}>
           <Navbar />
-          {children}
+          <main className="pt-16 md:pt-20">{children}</main>
           <Toaster position="top-center" richColors />
           <Footer />
         </NextIntlClientProvider>

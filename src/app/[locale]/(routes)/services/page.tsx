@@ -664,28 +664,28 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white">
       <section
-        className="relative min-h-[220px] flex items-center overflow-hidden py-8"
+        className="relative min-h-[200px] md:min-h-[220px] flex items-center overflow-hidden py-6 md:py-8"
         style={{
           background: "linear-gradient(90deg, #484174 0%, #6E679E 100%)",
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 w-full relative z-10">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 w-full relative z-10">
           <div className="text-center">
-            <h1 className="text-[32px] md:text-[44px] text-white font-semibold">
+            <h1 className="text-2xl sm:text-3xl md:text-[44px] text-white font-semibold">
               Service Packages
             </h1>
-            <p className="text-white/85 font-normal mt-1 mb-4">
+            <p className="text-sm md:text-base text-white/85 font-normal mt-1 mb-4 md:mb-6">
               Browse curated packages for your corporate events
             </p>
           </div>
 
-          <div className="flex justify-center gap-4 max-w-[900px] mx-auto">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4 max-w-[900px] mx-auto">
             {packageTypes.map((type) => (
               <button
                 key={type.id}
                 onClick={() => handlePackageTypeChange(type.id)}
                 className={cn(
-                  "shrink-0 rounded-2xl px-5 py-2 mb-2 hover:cursor-pointer flex flex-col items-center justify-center gap-1 border-2 transition-all duration-300",
+                  "shrink-0 rounded-xl md:rounded-2xl px-3 md:px-5 py-2 mb-2 hover:cursor-pointer flex flex-col items-center justify-center gap-1 border-2 transition-all duration-300 min-w-[80px] md:min-w-[120px]",
                   activePackageType === type.id
                     ? "bg-white border-[#6E679E] shadow-lg hover:cursor-pointer"
                     : "bg-transparent border-[#6E679E] hover:bg-[#6E679E]/10",
@@ -694,7 +694,7 @@ export default function ServicesPage() {
               >
                 <type.icon
                   className={cn(
-                    "w-6 h-6 mb-1",
+                    "w-5 h-5 md:w-6 md:h-6 mb-1",
                     activePackageType === type.id
                       ? "text-[#484174]"
                       : "text-white",
@@ -702,7 +702,7 @@ export default function ServicesPage() {
                 />
                 <div
                   className={cn(
-                    "font-bold text-[#484174]",
+                    "font-bold text-xs md:text-sm",
                     activePackageType === type.id
                       ? "text-[#484174]"
                       : "text-white",
@@ -712,7 +712,7 @@ export default function ServicesPage() {
                 </div>
                 <div
                   className={cn(
-                    "text-sm font-normal",
+                    "text-xs md:text-sm font-normal hidden sm:block",
                     activePackageType === type.id
                       ? "text-[#6E679E]"
                       : "text-white/80",
@@ -727,8 +727,8 @@ export default function ServicesPage() {
       </section>
 
       <div className="border-b-2 border-primary/30 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 md:px-20 py-5">
-          <div className="hidden lg:flex items-center gap-4">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-4 md:py-5">
+          <div className="hidden lg:flex items-center gap-3 xl:gap-4">
             <div className="shrink-0">
               <select
                 value={selectedCategory}
@@ -855,7 +855,7 @@ export default function ServicesPage() {
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full h-12 px-3 border border-[#E5E7EB] rounded-lg text-base text-[#111827] bg-white"
+              className="w-full h-11 md:h-12 px-3 border border-[#E5E7EB] rounded-lg text-sm md:text-base text-[#111827] bg-white focus:border-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1]/20"
             >
               {categoryOptions[activePackageType].map((cat) => (
                 <option key={cat} value={cat}>
@@ -865,22 +865,22 @@ export default function ServicesPage() {
             </select>
 
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#6B7280]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-[#6B7280]" />
               <input
                 type="text"
                 placeholder="Search packages..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full h-12 pl-10 pr-3 border border-[#E5E7EB] rounded-lg text-base"
+                className="w-full h-11 md:h-12 pl-9 md:pl-10 pr-3 border border-[#E5E7EB] rounded-lg text-sm md:text-base focus:border-[#6366F1] focus:outline-none focus:ring-2 focus:ring-[#6366F1]/20"
               />
             </div>
 
             <button
               onClick={() => setShowMobileFilters(true)}
-              className="w-full h-12 px-4 border border-[#E5E7EB] rounded-lg text-sm text-[#111827] bg-white flex items-center justify-between"
+              className="w-full h-11 md:h-12 px-4 border border-[#E5E7EB] rounded-lg text-sm text-[#111827] bg-white flex items-center justify-between hover:border-[#6366F1] transition-colors"
             >
               <div className="flex items-center gap-2">
-                <SlidersHorizontal className="w-5 h-5" />
+                <SlidersHorizontal className="w-4 h-4 md:w-5 md:h-5" />
                 <span>
                   More Filters{" "}
                   {activeFilterCount > 0 && `(${activeFilterCount})`}
@@ -893,19 +893,19 @@ export default function ServicesPage() {
       </div>
 
       <div className="border-b border-[#E5E7EB]">
-        <div className="max-w-7xl mx-auto px-4 md:px-10 py-4">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-3 md:py-4">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
             <p className="text-sm md:text-base text-[#6B7280]">
               {sortedPackages.length} packages found
             </p>
-            <div className="flex items-center gap-2 w-full md:w-auto">
-              <label className="text-sm text-[#6B7280] whitespace-nowrap">
+            <div className="flex items-center gap-2 w-full sm:w-auto">
+              <label className="text-xs md:text-sm text-[#6B7280] whitespace-nowrap">
                 Sort by:
               </label>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="flex-1 md:w-[180px] px-3 py-2 border border-[#E5E7EB] rounded-lg text-sm focus:border-[#6366F1] focus:outline-none bg-white"
+                className="flex-1 sm:w-[160px] md:w-[180px] px-3 py-2 border border-[#E5E7EB] rounded-lg text-xs md:text-sm focus:border-[#6366F1] focus:outline-none bg-white"
               >
                 <option value="recommended">Recommended</option>
                 <option value="price-low">Price: Low to High</option>
@@ -918,21 +918,21 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-10 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-6 md:py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {sortedPackages.map((pkg) => (
             <PackageCard key={pkg.id} package={pkg} />
           ))}
         </div>
 
         {sortedPackages.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-lg text-[#6B7280]">
+          <div className="text-center py-12 col-span-full">
+            <p className="text-base md:text-lg text-[#6B7280] mb-4">
               No packages found matching your criteria
             </p>
             <button
               onClick={clearFilters}
-              className="mt-4 px-6 py-2 bg-[#6366F1] text-white rounded-lg hover:bg-[#5B5BD6] transition-colors"
+              className="px-4 md:px-6 py-2 md:py-3 bg-[#6366F1] text-white text-sm md:text-base rounded-lg hover:bg-[#5B5BD6] transition-colors"
             >
               Clear Filters
             </button>

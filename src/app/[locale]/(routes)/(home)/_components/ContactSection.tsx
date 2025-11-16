@@ -74,56 +74,66 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="p-20 pt-12 bg-gray-100">
-      <div className="max-w- mx-auto px-4 sm:px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-gray-900 mb-6">
+    <section
+      id="contact"
+      className="px-4 py-12 md:px-10 md:py-16 lg:px-20 lg:py-20 pt-8 md:pt-12 bg-gray-100"
+    >
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             {t("title")}
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          <div className="relative bg-linear-to-br from-primary to-primary rounded-3xl p-8 text-white overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+          <div className="relative bg-gradient-to-br from-primary to-primary rounded-3xl p-6 md:p-8 text-white overflow-hidden">
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-4">
+              <h3 className="text-xl md:text-2xl font-bold mb-4">
                 {t("contact-information")}
               </h3>
-              <p className="text-teal-100 mb-8">{t("description")}</p>
+              <p className="text-teal-100 mb-6 md:mb-8 text-sm md:text-base">
+                {t("description")}
+              </p>
 
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <Phone className="w-5 h-5" />
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex items-center space-x-3 md:space-x-4">
+                  <Phone className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
                   <a
                     href="tel:+994104177132"
-                    className="text-teal-100 hover:underline cursor-pointer"
+                    className="text-teal-100 hover:underline cursor-pointer text-sm md:text-base"
                   >
                     +994 10 417 71 32
                   </a>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <Mail className="w-5 h-5" />
+                <div className="flex items-center space-x-3 md:space-x-4">
+                  <Mail className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
                   <a
                     href="mailto:info@olsunevents.com"
-                    className="text-teal-100 hover:underline cursor-pointer"
+                    className="text-teal-100 hover:underline cursor-pointer text-sm md:text-base break-all"
                   >
                     info@olsunevents.com
                   </a>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <MapPin className="w-5 h-5" />
-                  <p className="text-teal-100">Baku, Azerbaijan</p>
+                <div className="flex items-center space-x-3 md:space-x-4">
+                  <MapPin className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+                  <p className="text-teal-100 text-sm md:text-base">
+                    Baku, Azerbaijan
+                  </p>
                 </div>
               </div>
             </div>
 
-            <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-teal-400/20 rounded-full"></div>
+            <div className="absolute -bottom-16 -right-16 w-32 h-32 md:w-48 md:h-48 bg-teal-400/20 rounded-full"></div>
           </div>
 
-          <div className="bg-white rounded-3xl p-8 shadow-lg">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-3xl p-6 md:p-8 shadow-lg">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="space-y-4 md:space-y-6"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div>
                   <Label htmlFor="name">{t("your-name")}</Label>
                   <Input
@@ -204,7 +214,7 @@ export default function ContactSection() {
 
               <Button
                 type="submit"
-                className="bg-primary hover:bg-primary/80 text-white px-8 py-3 rounded-lg font-medium"
+                className="bg-primary hover:bg-primary/80 text-white px-6 md:px-8 py-3 rounded-lg font-medium w-full md:w-auto"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Sending..." : t("send-message")}

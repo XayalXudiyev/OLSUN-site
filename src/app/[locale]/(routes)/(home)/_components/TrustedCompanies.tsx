@@ -22,26 +22,26 @@ export default function TrustedCompanies() {
   ];
 
   return (
-    <section className="m-20">
+    <section className="mx-4 my-12 md:mx-10 lg:mx-20 md:my-20">
       <div className="max-w-7xl mx-auto text-center">
-        <p className="text-primary font-semibold mb-6 flex items-center justify-center gap-2 text-2xl  rounded-lg w-max mx-auto px-4 py-2 shadow-sm">
+        <p className="text-primary font-semibold mb-6 flex items-center justify-center gap-2 text-[13px] md:text-2xl rounded-lg w-max mx-auto px-3 md:px-4 py-2 shadow-sm">
           {t("partnering-text")}
         </p>
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+        <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8 lg:gap-12">
           {supportedBy.map((supporter) => (
             <div
               key={supporter.name}
               className="flex flex-col items-center gap-2 p-4 hover:scale-105 transition-transform"
             >
-              <div className="relative h-16 w-32 md:h-28 md:w-48 flex items-center justify-center">
+              <div className="relative h-12 w-24 sm:h-16 sm:w-32 md:h-20 md:w-40 lg:h-28 lg:w-48 flex items-center justify-center">
                 <Image
                   src={supporter.logo}
                   alt={supporter.alt}
                   fill
-                  className="object-contain filter  hover:grayscale-0 transition-all duration-300"
+                  className="object-contain filter hover:grayscale-0 transition-all duration-300"
                 />
               </div>
-              <span className="text-xs text-[#6B7280] text-center font-medium">
+              <span className="text-xs sm:text-sm text-[#6B7280] text-center font-medium">
                 {supporter.name}
               </span>
             </div>

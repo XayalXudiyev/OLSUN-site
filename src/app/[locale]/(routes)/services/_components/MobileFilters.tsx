@@ -51,7 +51,14 @@ export const MobileFilters = ({
 
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
-      <Button className="absolute inset-0 bg-black/50" onClick={onClose} />
+      <div
+        className="absolute inset-0 bg-black/50"
+        onClick={onClose}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => e.key === "Enter" && onClose()}
+        aria-label="Close filters"
+      />
 
       <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-xl max-h-[80vh] overflow-hidden">
         <div className="flex items-center justify-between p-4 border-b border-[#E5E7EB]">

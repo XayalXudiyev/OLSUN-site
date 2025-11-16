@@ -26,29 +26,32 @@ export default function ProblemsSection() {
   ];
 
   return (
-    <section className="p-20 bg-primary">
+    <section className="px-4 py-12 md:px-10 md:py-16 lg:px-20 lg:py-20 bg-primary">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-[40px] text-white text-center mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] text-white text-center mb-4">
           {t("the-challenges-faced")}
         </h2>
-        <p className="text-lg text-[#B2ADD2] text-center mb-16">
+        <p className="text-base md:text-lg text-[#B2ADD2] text-center mb-8 md:mb-16 px-4">
           {t("event-planning-shouldnt-consume")}
         </p>
 
-        <div className="grid md:grid-cols-3 gap-8 ">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {problemsData.map((problem) => (
             <div
               key={problem.title}
-              className="bg-[#332B66] rounded-2xl p-7 hover:shadow-lg hover:-translate-y-1 transition-all text-white"
+              className="bg-[#332B66] rounded-2xl p-6 md:p-7 hover:shadow-lg hover:-translate-y-1 transition-all text-white"
             >
               <Image
                 src={problem.icon}
                 alt={problem.title}
                 width={56}
                 height={56}
+                className="w-12 h-12 md:w-14 md:h-14"
               />
-              <h3 className="text-2xl mt-3 mb-5">{problem.title}</h3>
-              <p className="text-[#A59FC6] leading-relaxed">
+              <h3 className="text-xl md:text-2xl mt-3 mb-4 md:mb-5">
+                {problem.title}
+              </h3>
+              <p className="text-sm md:text-base text-[#A59FC6] leading-relaxed">
                 {problem.description}
               </p>
             </div>
